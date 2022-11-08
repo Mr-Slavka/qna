@@ -1,0 +1,17 @@
+Documentation:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Layout/InitialIndentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 12
+
+Metrics/ClassLength:
+  Enabled: false
