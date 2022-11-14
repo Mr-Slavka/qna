@@ -1,18 +1,22 @@
 class AnswersController < ApplicationController
-  expose :answer
-  expose :question, -> { Question.find(params[:question_id]) }
 
   def create
-    @exposed_answer = question.answers.new(answer_params)
+    @answer = question.answers.new(answer_params)
 
-    if answer.save
-      redirect_to answer
+    if @answer.save
+      redirect_to @answer.question
     else
-      render :new
+      render 'questions/show'
     end
   end
 
   private
+
+  helper_method :question
+
+  def question
+    @question ||= Question.find(params[:question_id])
+  end
 
   def answer_params
     params.require(:answer).permit(:body)

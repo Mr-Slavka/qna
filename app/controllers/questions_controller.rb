@@ -1,11 +1,22 @@
 class QuestionsController < ApplicationController
-  expose :questions, -> { Question.all }
-  expose :question
+
+  def index
+    @questions = Question.all
+  end
+
+  def show
+  end
+
+  def new
+  end
+
+  def edit
+  end
 
   def create
+    @question = Question.new(question_params)
 
-
-    if question.save
+    if @question.save
       redirect_to question_path(question)
     else
       render :new
@@ -26,6 +37,12 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def question
+    @question ||= params[:id] ? Question.find(params[:id]) : Question.new
+  end
+
+  helper_method :question
 
   def question_params
     params.require(:question).permit(:title, :body)
