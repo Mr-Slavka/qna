@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'User can see the question and answers to it', %q{
+feature "User can see the question and answers to it", %q{
   In order to get answer from a community
   As a user
   I'd like to be able to see question and answers to it
@@ -11,14 +11,14 @@ feature 'User can see the question and answers to it', %q{
 
   background { visit question_path(question) }
 
-  scenario 'Authentacated user can see and answers to it' do
+  scenario "Authentacated user can see and answers to it" do
     sign_in(user)
     expect(page).to have_content question.title
     expect(page).to have_content question.body
     answers.each { |answer|  expect(page).to have_content question.body }
   end
 
-  scenario 'Unauthentacated user can see and answers to it' do
+  scenario "Unauthentacated user can see and answers to it" do
     expect(page).to have_content question.title
     expect(page).to have_content question.body
     answers.each { |answer|  expect(page).to have_content question.body }

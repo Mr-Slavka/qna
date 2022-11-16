@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'User can look over list of questions', %q{
+feature "User can look over list of questions", %q{
   In order to find my question
   As a user
   I'd like to be able to look over list of questions
@@ -11,7 +11,7 @@ feature 'User can look over list of questions', %q{
 
   background { visit questions_path  }
 
-  scenario 'Authenticated user can look over list of questions' do
+  scenario "Authenticated user can look over list of questions" do
     sign_in(user)
 
     questions.each do |question|
@@ -20,7 +20,7 @@ feature 'User can look over list of questions', %q{
     end
   end
 
-  scenario 'Unauthenticated user can look over list of questions' do
+  scenario "Unauthenticated user can look over list of questions" do
     questions.each do |question|
       expect(page).to have_content(question.title)
       expect(page).to have_content(question.body)
