@@ -52,9 +52,7 @@ bower.json
 # Ignore node_modules
 node_modules/
 
-# Ignore precompiled javascript packs
-/public/packs
-/public/packs-test
+# Ignore precompiled javascript packs-test
 /public/assets
 
 # Ignore yarn files
@@ -71,3 +69,8 @@ yarn-debug.log*
 /config/application.yml
 .idea/
 .directory
+/node_modules
+
+/public/packs
+/public/packs-test
+
