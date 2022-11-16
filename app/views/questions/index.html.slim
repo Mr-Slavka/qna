@@ -4,11 +4,6 @@ table
     th Title 
     th Body
 
-  - @questions.each do |question|
-    tr
-      td= question.title
-      td= question.body
-      td= link_to 'Show', question_path(question)
-
+  = render @questions
 
 p = link_to 'Ask question', new_question_path
