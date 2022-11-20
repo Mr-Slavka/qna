@@ -12,6 +12,7 @@ import "bootstrap";
 import "./answer";
 import "../../assets/stylesheets/application.scss";
 import "@popperjs/core";
+import "./question";
 
 
 Rails.start();
