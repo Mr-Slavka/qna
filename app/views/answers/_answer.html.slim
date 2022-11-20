@@ -3,6 +3,8 @@
     p= answer.body
 
     - if user_signed_in? && current_user&.author?(answer)
+      = link_to 'Best answer'
+      p= 'The best answer'
       p= link_to 'Edit', '#', class: 'edit-answer-link', data: { answer_id: answer.id }
 
       = button_to 'Delete answer', answer_path(answer),
