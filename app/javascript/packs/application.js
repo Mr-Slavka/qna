@@ -11,6 +11,7 @@ import "channels";
 import "bootstrap";
 import "./answer";
 import "../../assets/stylesheets/application.scss";
+import "@popperjs/core";
 
 
 Rails.start();

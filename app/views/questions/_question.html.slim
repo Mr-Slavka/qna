@@ -1,7 +1,7 @@
 
-.question.mt-3 data-question-id="#{question.id}"
-  h3= question.title
-  p= question.body
-  - if current_user&.author?(question)
-    .btn-group
-      = link_to 'Delete question', question_path(question), method: :delete, class: 'btn btn-outline-danger'
+/.question.mt-3 data-question-id="#{question.id}"
+/ h3= question.title
+/ p= question.body
+/  - if current_user&.author?(question)
+/    .btn-group
+/      = link_to 'Delete question', question_path(question), method: :delete, class: 'btn btn-outline-danger'
