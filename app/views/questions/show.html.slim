@@ -1,11 +1,14 @@
 .question
   = render @question
 
+p.mt-3.span.badge.bg-secondary= 'Add an answer'
+
 - if user_signed_in?
   = render 'answers/form'
-
+h4.mt-3.span.badge.bg-secondary= 'Answer'
 .answers
-    = render @question.answers
 
 
-    = link_to 'Back', questions_path
+    = render @question.answers.sort_by_best
+
+
