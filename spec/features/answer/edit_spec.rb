@@ -14,20 +14,22 @@ feature "User can edit his answer", %q{
 
     visit question_path(question)
 
-    expect(page).to_not have_link "Edit"
+    expect(page).to_not have_link "Edit question"
   end
 
   describe "Authenticated user" do
+
     scenario "edits his answer", js: true do
 
       sign_in user
+
       visit question_path(question)
       #save_and_open_page
       click_on "Edit"
 
 
       within ".answers" do
-        fill_in "Your answer", with: "edited answer", match: :prefer_exact
+        fill_in 'Your answer', with: 'edited answer'#, match: :prefer_exact
         click_on "Save"
 
         expect(page).to_not have_content answer.body
@@ -44,7 +46,7 @@ feature "User can edit his answer", %q{
 
       within '.answers' do
         fill_in 'Your answer', with: '', match: :prefer_exact
-
+        fill_in 'Your answer', with: ''
         click_on 'Save'
         expect(page).to have_content "Body can't be blank"
       end

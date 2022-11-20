@@ -1,17 +1,11 @@
-.mb-4
-    h1= @question.title
-    p= @question.body
+.question
+  = render @question
 
-- if current_user&.author?(@question)
-    .mb-3
-        = link_to 'Delete question',
-                question_path(@question),
-                method: :delete,
-                class: 'btn btn-outline-success',
-                data: { confirm: 'Are you sure?' }
+- if user_signed_in?
+  = render 'answers/form'
 
 .answers
     = render @question.answers
 
-    - if user_signed_in?
-        = render 'answers/form'
+
+    = link_to 'Back', questions_path
