@@ -44,6 +44,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem "slim-rails"
 gem "devise"
+gem "mini_magick"
+gem 'aws-sdk-s3', require: false
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -56,6 +59,7 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rspec-rails"
   gem "factory_bot_rails"
+  gem 'dotenv-rails'
 end
 
 group :development do
