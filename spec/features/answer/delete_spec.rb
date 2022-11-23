@@ -33,8 +33,8 @@ feature "User can delete his answer", %q{
     sign_in(user)
     visit question_path(answer.question)
 
-    within '.answer' do
-      click_on 'Edit'
+    within '.answers' do
+      click_on 'Edit answer'
       attach_file 'Files', "#{Rails.root}/spec/rails_helper.rb"
       click_on 'Save'
     end

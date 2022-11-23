@@ -15,7 +15,7 @@
       li= link_to link.name, link.url
 
     - if user_signed_in? && current_user&.author?(answer)
-      p= link_to 'Edit', '#', class: 'edit-answer-link', data: { answer_id: answer.id }
+      p= link_to 'Edit answer', '#', class: 'edit-answer-link', data: { answer_id: answer.id }
 
       = button_to 'Delete answer', answer_path(answer),
               method: :delete
