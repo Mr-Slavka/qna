@@ -31,18 +31,13 @@ feature 'Author can choose the best answer', %q{
         visit question_path(question)
 
 
-        within ".answer[data-answer-id='#{answer.id}']" do
-          expect(page).not_to have_content 'The best answer'
-
-          click_on 'Best answer'
-          expect(page).to have_content 'The best answer'
-        end
+        expect(page).not_to have_content 'The best answer'
+        click_on 'Best answer'
+        expect(page).to have_content 'The best answer'
 
       end
 
-      scenario 'can choose another best answer' do
 
-      end
     end
   end
 end

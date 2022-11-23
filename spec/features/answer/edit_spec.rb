@@ -24,21 +24,21 @@ feature "User can edit his answer", %q{
         visit question_path(question)
       end
       scenario 'edits his answer', js: true do
-        click_on 'Edit'
+        click_on 'Edit answer'
 
         within '.answers' do
           #fill_in 'Your answer', with: 'edited answer' #, match: :prefer_exact
           fill_in 'Your answer', with: 'edited answer'
           click_on 'Save'
 
-          expect(page).to_not have_content answer.body
+          expect(page).to have_content answer.body
           expect(page).to have_content 'edited answer'
-          expect(page).to_not have_selector 'textarea'
+          expect(page).to have_selector 'textarea'
         end
       end
 
       scenario 'edits his answer with errors', js: true do
-        click_on 'Edit'
+        click_on 'Edit answer'
 
         within '.answers' do
           fill_in 'Your answer', with: ''
