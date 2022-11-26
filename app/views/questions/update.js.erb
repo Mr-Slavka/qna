@@ -1,5 +1,5 @@
-$('.question-errors').html("<%= render 'shared/errors', resource: @question %>");
+$('.form-errors[data-form-id="<%= @question.id %>"]').html('<%= render 'shared/errors', resource: @question %>');
 
 <% unless @question.errors.present? %>
-$('.question').html('<%= j render @question %>');
+$('.question[data-question-id="<%= @question.id %>"]').replaceWith('<%= j render @question %>');
 <% end %>
