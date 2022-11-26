@@ -1,5 +1,6 @@
 = render 'shared/errors', resource: @question
 h1= 'New question'
+= link_to 'Back', questions_path
 = form_with model: @question, local: true do |f|
   .mb-3
     = f.label :title, class: 'form-label'
