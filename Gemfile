@@ -46,6 +46,8 @@ gem "slim-rails"
 gem "devise"
 gem "mini_magick"
 gem 'aws-sdk-s3', require: false
+gem "cocoon"
+gem 'octokit', '~> 4.0'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

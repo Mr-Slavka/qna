@@ -13,8 +13,14 @@ import "./answer";
 import "../../assets/stylesheets/application.scss";
 import "@popperjs/core";
 import "./question";
+import "jquery";
+import "@nathanvda/cocoon";
+
+const GistClient = require("gist-client");
+const gistClient = new GistClient();
 
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+window.gistClient = gistClient;
