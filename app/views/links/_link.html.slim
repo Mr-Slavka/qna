@@ -1,4 +1,4 @@
--if link.linkable.links
+-if link.persisted?
   li.mb-3 data-link-id=link.id
     = link_to link.name, link.url, class: 'btn btn-link m-3'
 
@@ -14,5 +14,5 @@
                       current.innerText = response.files[file].content
                   }
               }).catch(err => console.log(err))
-    - if current_user&.author?(link.linkable)
-      = link_to 'Delete link', link_path(link), method: :delete, class:'btn btn-danger', remote: true
+    - if current_user&.author?(resource)
+      = link_to 'Delete link', link_path(link), method: :delete, local: false, class:'btn btn-danger', remote: true
