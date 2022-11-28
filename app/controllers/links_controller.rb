@@ -3,9 +3,7 @@ class LinksController < ApplicationController
   before_action :link
 
   def destroy
-    if current_user&.author?(@link.linkable)
       @link.destroy
-    end
   end
 
   private
