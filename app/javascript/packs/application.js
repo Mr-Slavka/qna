@@ -15,6 +15,7 @@ import "@popperjs/core";
 import "./question";
 import "jquery";
 import "@nathanvda/cocoon";
+import "./votes";
 
 const GistClient = require("gist-client");
 const gistClient = new GistClient();
