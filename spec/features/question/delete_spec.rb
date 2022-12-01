@@ -21,18 +21,18 @@ feature "User can delete own question", %q{
     expect(page).to_not have_content question.title
   end
 
-  scenario 'user can delete the file', js: true do
+  scenario "user can delete the file", js: true do
     sign_in(user)
     visit question_path(question)
-    within(all('.question')[1]) do
-      click_on 'Edit question', match: :prefer_exact
-      attach_file 'File', "#{Rails.root}/spec/rails_helper.rb"
-      click_on 'Save'
+    within(all(".question")[1]) do
+      click_on "Edit question", match: :prefer_exact
+      attach_file "File", "#{Rails.root}/spec/rails_helper.rb"
+      click_on "Save"
     end
 
-    expect(page).to have_link 'rails_helper.rb'
-    click_on 'Delete file'
-    expect(page).to_not have_link 'rails_helper.rb'
+    expect(page).to have_link "rails_helper.rb"
+    click_on "Delete file"
+    expect(page).to_not have_link "rails_helper.rb"
   end
 
   scenario "Other authorized user tries to delete question" do
