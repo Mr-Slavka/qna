@@ -15,14 +15,14 @@ feature "User can sign up", %q{
 
     scenario "valid dates" do
       fill_in "Password confirmation", with: "12345678"
-      click_on "Sign up"
+      click_button "Sign up"
 
       expect(page).to have_content "Welcome! You have signed up successfully."
     end
 
     scenario "invalid dates" do
       fill_in "Password confirmation", with: "12345555"
-      click_on "Sign up"
+      click_button "Sign up"
 
       expect(page).to have_content "Password confirmation doesn't match"
     end
@@ -35,7 +35,7 @@ feature "User can sign up", %q{
       fill_in 'Password', with: user.password
       fill_in 'Password confirmation', with: user.password_confirmation
 
-      click_on 'Sign up'
+      click_button 'Sign up'
 
       expect(page).to have_content 'Email has already been taken'
     end

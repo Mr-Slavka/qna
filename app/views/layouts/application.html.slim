@@ -10,11 +10,6 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    - if user_signed_in?
-      = link_to 'Log out', destroy_user_session_path, method: :delete
-      = link_to 'Rewards', rewards_path
-    - elsif !current_page?(new_user_session_path)
-      = link_to 'Log in', new_user_session_path
 
     .container
       .row.justify-content-between
@@ -22,4 +17,5 @@ html
           p.notice = notice
           p.alert = alert
 
+          = render "shared/header"
           = yield
