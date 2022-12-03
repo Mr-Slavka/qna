@@ -6,24 +6,20 @@ module Voted
   end
 
   def vote_up
-    return errors_response if current_user.author?(@votable)
-    return errors_response if @votable.vote_of?(current_user)
+    return errors_response if user_voted_for?(@votable)
 
     @votable.vote_up(current_user)
     success_response
   end
 
   def vote_down
-    return errors_response if current_user.author?(@votable)
-    return errors_response if @votable.vote_of?(current_user)
+    return errors_response if user_voted_for?(@votable)
 
     @votable.vote_down(current_user)
     success_response
   end
 
   def unvote
-
-
     @votable.unvote(current_user)
     success_response
   end
@@ -40,6 +36,10 @@ module Voted
 
   def model_klass
     controller_name.classify.constantize
+  end
+
+  def user_voted_for?(votable)
+    votable.vote_of?(current_user)
   end
 
   def set_votable
