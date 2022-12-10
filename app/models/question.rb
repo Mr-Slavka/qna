@@ -3,6 +3,7 @@ class Question < ApplicationRecord
 
   has_many :answers, dependent: :destroy
   has_many :links, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_many_attached :files
   has_one :reward, dependent: :destroy

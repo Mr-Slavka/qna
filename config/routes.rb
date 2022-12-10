@@ -8,11 +8,15 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'questions#index'
+  concern :comment do
+    resources :comments, only: :create
+  end
+
+  root to: "questions#index"
   devise_for :users
 
-  resources :questions, concerns: :vote, shallow: true do
-    resources :answers, concerns: :vote, except: [:index, :show, :edit] do
+  resources :questions, concerns: %i[vote comment], shallow: true do
+    resources :answers, concerns: %i[vote comment], except: [:index, :show, :edit] do
       post :mark_as_best, on: :member
     end
   end
@@ -20,4 +24,7 @@ Rails.application.routes.draw do
   resources :attachments, only: :destroy
   resources :links, only: :destroy
   resources :rewards, only: :index
+
+  mount ActionCable.server => "/cable"
+
 end

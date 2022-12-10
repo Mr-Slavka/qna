@@ -48,6 +48,7 @@ gem "mini_magick"
 gem 'aws-sdk-s3', require: false
 gem "cocoon"
 gem 'octokit', '~> 4.0'
+gem 'gon'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

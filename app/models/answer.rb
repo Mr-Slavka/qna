@@ -4,6 +4,7 @@ class Answer < ApplicationRecord
   belongs_to :question
   belongs_to :user
   has_many :links, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_many_attached :files
 
