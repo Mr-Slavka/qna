@@ -16,6 +16,12 @@ import "./question";
 import "jquery";
 import "@nathanvda/cocoon";
 import "./votes";
+import createConsumer from "../channels/consumer";
+
+//import {createConsumer} from "@rails/actioncable";
+
+//window.App = window.App || {};
+//window.App.cable = createConsumer();
 
 const GistClient = require("gist-client");
 const gistClient = new GistClient();
