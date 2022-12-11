@@ -42,7 +42,6 @@ feature 'User can comment an answer', %q{
       end
 
       Capybara.using_session('guest') do
-        sign_in(user)
         visit question_path(question)
       end
 

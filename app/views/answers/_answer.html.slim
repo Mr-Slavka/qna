@@ -3,7 +3,7 @@
   .answer.mb-3 data-answer-id="#{answer.id}"
     p= answer.body
     - if answer.files.attached?
-      = render 'shared/attachments', resource: answer
+      = render 'shared/attachments', resource: answer, current_user: current_user
 
     - if answer.links.present?
       .links.mb-3
