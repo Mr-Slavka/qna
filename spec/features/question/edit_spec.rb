@@ -18,7 +18,7 @@ feature "User can edit his question", %{
   describe "Authenticated user" do
     describe "Author" do
       background do
-        sign_in user
+        sign_in(user)
         visit question_path(question)
       end
 
@@ -31,7 +31,8 @@ feature "User can edit his question", %{
           click_on "Save"
 
           expect(page).to have_content "edited question title"
-          expect(page).to_not have_selector "textarea"
+          expect(page).to_not have_selector "textarea", text: question.body
+
         end
       end
 
@@ -62,7 +63,7 @@ feature "User can edit his question", %{
     end
 
     scenario "tries to edit question of other user" do
-      sign_in other_user
+      sign_in(other_user)
       visit question_path(question)
 
       expect(page).to have_content question.title

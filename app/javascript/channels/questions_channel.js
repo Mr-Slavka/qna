@@ -8,8 +8,8 @@ consumer.subscriptions.create(
           //this.perform("follow");
          },
         received(data) {
-            //console.log(data);
-            // $(".questions-list").append(data["partial"]);
+            console.log(data);
+            $(".questions-list").append(data["partial"]);
         },
     }
 );

@@ -9,8 +9,8 @@ consumer.subscriptions.create(
         },
 
         received(data) {
-            //console.log(data);
-            //$(".answers").append(data["partial"]);
+            console.log(data);
+            $(".answers").append(data["partial"]);
             // Called when there's incoming data on the websocket for this channel
         },
     }

@@ -20,7 +20,7 @@ feature "User can edit his answer", %q{
   describe "Authenticated user" do
     describe 'author' do
       background do
-        sign_in user
+        sign_in(user)
         visit question_path(question)
 
       end
