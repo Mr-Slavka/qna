@@ -46,7 +46,7 @@ class AnswersController < ApplicationController
       {
         partial: ApplicationController.render(
           partial: "answers/answer",
-          locals: { answer: @answer, current_user: current_user}
+          locals: {answer: @answer, current_user: current_user}
         )
       }
     )
