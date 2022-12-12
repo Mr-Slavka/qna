@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
     id = @comment.question_id.nil? ? @commentable.question_id : @comment.question_id
     ActionCable.server.broadcast(
-      "comments-#{id}", {
+      "comments/#{id}", {
         partial: ApplicationController.render( partial: "comments/comment", locals: { comment: @comment}), comment: @comment
       }
     )
