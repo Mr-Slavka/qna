@@ -49,6 +49,10 @@ gem 'aws-sdk-s3', require: false
 gem "cocoon"
 gem 'octokit', '~> 4.0'
 gem 'gon'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-vkontakte'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -63,6 +67,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem 'dotenv-rails'
+  gem 'letter_opener'
 end
 
 group :development do
@@ -84,4 +89,5 @@ group :test do
   gem "shoulda-matchers", "~> 5.1"
   gem "rails-controller-testing"
   gem "launchy"
+  gem 'capybara-email'
 end

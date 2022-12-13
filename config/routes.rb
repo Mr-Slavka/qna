@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: { omniauth_callbacks: 'oauth_callbacks', confirmations: 'confirmations' }
+
+  root to: 'questions#index'
+
   concern :vote do
     member do
       patch :vote_up
@@ -11,9 +15,6 @@ Rails.application.routes.draw do
   concern :comment do
     resources :comments, only: :create
   end
-
-  root to: "questions#index"
-  devise_for :users
 
   resources :questions, concerns: %i[vote comment], shallow: true do
     resources :answers, concerns: %i[vote comment], except: [:index, :show, :edit] do
