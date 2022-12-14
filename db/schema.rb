@@ -75,6 +75,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_131328) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
+  end
+
   create_table "links", force: :cascade do |t|
     t.string "name"
     t.string "url"
