@@ -53,6 +53,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-vkontakte'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'data_migrate'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
