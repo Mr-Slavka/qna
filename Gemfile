@@ -55,6 +55,9 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 gem 'data_migrate'
 gem 'cancancan'
+gem 'doorkeeper'
+gem 'active_model_serializers', '~> 0.10'
+gem 'oj'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

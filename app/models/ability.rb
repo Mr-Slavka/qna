@@ -28,8 +28,8 @@ class Ability
     can :destroy, [Question, Answer], { user_id: user.id }
 
     can :mark_as_best, Answer, question: { user_id: user.id }
-    can :destroy, Link,  question: { user_id: user.id }
-    can :destroy, Link,  answer: { user_id: user.id }
+    can :destroy, Link, question: { user_id: user.id }
+    can :destroy, Link, answer: { user_id: user.id }
     can :destroy, ActiveStorage::Attachment, record: { user_id: user.id }
 
     can %i[vote_up vote_down unvote], [Question, Answer] do |vote|
