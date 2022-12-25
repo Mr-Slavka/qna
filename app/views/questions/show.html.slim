@@ -1,5 +1,8 @@
 .question
   = render 'question_part', resource: @question
+  .subscription
+    - if can?(:create, Subscription)
+      = render 'subscriptions/subscription', resource: @question
 
 p.mt-3.span.badge.bg-secondary= 'Add an answer'
 
