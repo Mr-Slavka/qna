@@ -58,6 +58,11 @@ gem 'cancancan'
 gem 'doorkeeper'
 gem 'active_model_serializers', '~> 0.10'
 gem 'oj'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'whenever', require: false
+
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"

@@ -74,4 +74,10 @@ class QuestionsController < ApplicationController
       }
     )
   end
+
+  def subscription
+    @subscription ||= question.subscriptions.find_by(user: current_user)
+  end
+
+  helper_method :subscription
 end

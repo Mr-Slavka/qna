@@ -137,7 +137,7 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    before { login(user) }
+
 
     let!(:question) { create(:question, user: user) }
     let!(:other_user) { create(:user) }
@@ -145,7 +145,7 @@ RSpec.describe QuestionsController, type: :controller do
 
 
     context "Authorized author" do
-
+      before { login(user) }
       it "deletes the question" do
         expect { delete :destroy, params: { id: question } }.to change(Question.where(user: user), :count).by(-1)
       end
@@ -158,11 +158,14 @@ RSpec.describe QuestionsController, type: :controller do
 
     context "Authorized other user" do
       it "deletes the question" do
-        expect { delete :destroy, params: { id: other_question } }.to_not change(Question, :count)
+        login(other_user)
+
+        expect { delete :destroy, params: { id: question } }.to_not change(Question, :count)
       end
 
       it "redirects to index" do
-        delete :destroy, params: { id: other_question }
+        login(user)
+        delete :destroy, params: { id: question }
         expect(response).to redirect_to questions_path
       end
     end
