@@ -61,6 +61,8 @@ gem 'oj'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'whenever', require: false
+gem 'mysql2'
+gem 'thinking-sphinx'
 
 
 
@@ -78,6 +80,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem 'dotenv-rails'
   gem 'letter_opener'
+  gem 'database_cleaner'
 end
 
 group :development do
