@@ -9,9 +9,8 @@
             p = link_to object.question.body, question_path(object.question)
             p = "#{object.class}: #{object.body}"
           - elsif object.is_a?(Comment)
-            p = object.commentable.body
-            p = "#{object.commentable.class} comment: #{object.body}"
-            p = "#{object.class}: #{object.body}"
+            p = object.question_id == nil ? (link_to object.answer.body, answer_path(object.answer.question)) : (link_to object.question.body, question_path(object.question))
+            p = object.question_id == nil ? "answer : #{object.answer.body} , #{object.class}: #{object.body}"  : "question : #{object.question.body} , #{object.class}: #{object.body}"
           - elsif object.is_a?(User)
             p = link_to object.email, root_path
           - else
