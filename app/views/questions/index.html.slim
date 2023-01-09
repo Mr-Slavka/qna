@@ -1,5 +1,5 @@
 -if can?(:create, Question)
-  p= link_to 'Ask question', new_question_path
+  h3 = link_to 'Ask question',  new_question_path , class: "text-success"
 
 -if can?(:read, :all)
   h1.span.badge.bg-info Question list

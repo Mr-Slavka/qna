@@ -3,7 +3,7 @@
   h1= @question.title
   p=  @question.body
   br
-    = link_to 'Back', questions_path
+    = link_to 'Back', questions_path, class: "text-success"
   - if @question.files.attached?
     = render 'shared/attachments', resource: @question
   - if @question.links.present? && @question.links.length > 0

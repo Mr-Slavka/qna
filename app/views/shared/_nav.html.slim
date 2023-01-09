@@ -1,0 +1,16 @@
+.nav class="navbar navbar-expand-lg navbar-light bg-light"
+  = link_to  root_path, class: 'navbar-brand'do
+    span Main page
+  div class="collapse navbar-collapse"
+  - if user_signed_in?
+    ul class="navbar-nav mr-auto"
+      = link_to rewards_path, class: 'nav-link'
+        span Rewards
+    = content_tag :p, "#{current_user.email}", class: "alert alert-primary"
+    a = link_to destroy_user_session_path, method: :delete
+      span Log out
+  - else
+    = link_to "Log in", new_user_session_path
+    span |
+    = link_to "Sign up", new_user_registration_path
+  = render 'search/form'

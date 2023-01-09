@@ -22,9 +22,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    if current_user&.author?(@answer)
-      @answer.destroy
-    end
+    @answer.destroy
   end
 
   def mark_as_best
