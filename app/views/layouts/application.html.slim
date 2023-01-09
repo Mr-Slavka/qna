@@ -2,7 +2,7 @@ doctype 5
 html
   head
     title 'Qna'
-    meta name="viewport" content="width=device-width,initial-scale=1"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
     = csrf_meta_tags
     = csp_meta_tag
     = Gon::Base.render_data
@@ -12,12 +12,12 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-
+    = render "shared/nav"
     .container
-      .row.justify-content-between
-        .col-4
-          p.notice = notice
-          p.alert = alert
 
-          = render "shared/header"
-          = yield
+
+        p.notice = notice
+        p.alert = alert
+
+
+        = yield

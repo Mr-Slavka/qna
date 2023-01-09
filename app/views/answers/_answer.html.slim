@@ -1,6 +1,6 @@
 - if answer.persisted?
-  = render 'votes/vote', resource: answer, current_user: current_user
   .answer.mb-3 data-answer-id="#{answer.id}"
+    = render 'votes/vote', resource: answer, current_user: current_user
     p= answer.body
     - if answer.files.attached?
       = render 'shared/attachments', resource: answer, current_user: current_user
@@ -12,21 +12,14 @@
           - answer.links.each do |link|
             = render link, resource: answer, current_user: current_user
 
-  h3.mt-3.mb-3 Comments:
-  .answer-comment data-comment-answer=answer.id
-    = render answer.comments
-  -if can?(:create, Comment)
-    .comments-form
-      =render 'comments/form', resource: answer
-
-  - if can?(:update, Answer)
-    p= link_to 'Edit answer', '#', class: 'edit-answer-link', data: { answer_id: answer.id }
-
     - if can?(:update, answer)
+      p= link_to 'Edit answer', '#', class: 'edit-answer-link', data: { answer_id: answer.id }
+
+    - if can?(:destroy, answer)
       p= button_to 'Delete answer', answer_path(answer),
               method: :delete,
               remote: true,
-              class: 'btn btn-info'
+              class: 'btn btn-danger'
 
 
     - if answer.best
@@ -35,15 +28,24 @@
       - if can?(:mark_as_best, Answer)
       = link_to 'Best answer', mark_as_best_answer_path(answer), method: :post, remote: true, class: 'btn btn-outline-primary'
 
-  = form_with model: answer,  class: 'hidden', html: { id: "edit-answer-#{answer.id}" }, local: false do |f|
-    .form-errors data-form-id="#{answer.id}"
-    .mb-3
-      = f.label :body, 'Your answer', class: 'form-label'
-      = f.text_area :body, class: 'form-control'
-    .mb-3
-      = f.label :files, class: 'form-label'
-      = f.file_field :files, class: 'form-control', multiple: true, direct_upload: true
-    .mb-3
-      = render 'links/form', f: f
+    h3.mt-3.mb-3 Comments:
+    .answer-comment data-comment-answer=answer.id
+      = render answer.comments
+    -if can?(:create, Comment)
+      .comments-form
+        =render 'comments/form', resource: answer
 
-      = f.submit 'Save', class: 'btn btn-outline-primary'
+
+
+    = form_with model: answer,  class: 'hidden', html: { id: "edit-answer-#{answer.id}" }, local: false do |f|
+      .form-errors data-form-id="#{answer.id}"
+      .mb-3
+        = f.label :body, 'Your answer', class: 'form-label'
+        = f.text_area :body, class: 'form-control'
+      .mb-3
+        = f.label :files, class: 'form-label'
+        = f.file_field :files, class: 'form-control', multiple: true, direct_upload: true
+      .mb-3
+        = render 'links/form', f: f
+
+        = f.submit 'Save', class: 'btn btn-outline-primary'
