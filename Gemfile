@@ -65,6 +65,7 @@ gem 'mysql2'
 gem 'thinking-sphinx'
 gem 'bootstrap', '~> 5.1.3'
 gem 'mini_racer'
+gem 'redis'
 
 
 
@@ -94,6 +95,7 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano-passenger', require: false
+  gem 'capistrano-sidekiq', require: false
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
