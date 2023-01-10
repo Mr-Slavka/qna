@@ -67,7 +67,6 @@ yarn-debug.log*
 # Ignore configuration
 /config/database.yml
 /config/application.yml
-/config/credentials.yml.enc
 .idea/
 .directory
 /node_modules
