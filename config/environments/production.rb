@@ -71,8 +71,8 @@ Rails.application.configure do
     domain: 'yandex.ru',
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: Rails.application.credentials.yandex_mail[:login],
-    password: Rails.application.credentials.yandex_mail[:password],
+    user_name: Rails.application.credentials[:production][:yandex_mail][:login],
+    password: Rails.application.credentials[:production][:yandex_mail][:password],
     ssl: true
   }
   # Ignore bad email addresses and do not raise email delivery errors.
