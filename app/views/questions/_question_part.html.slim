@@ -1,5 +1,6 @@
 .question data-question-id="#{@question.id}"
-  = render 'votes/vote', resource: @question
+  -if can?(:unvote, @question)
+    = render 'votes/vote', resource: @question
   h1= @question.title
   p=  @question.body
   br
