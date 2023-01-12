@@ -66,6 +66,7 @@ gem 'thinking-sphinx'
 gem 'bootstrap', '~> 5.1.3'
 gem 'mini_racer'
 gem 'redis'
+gem 'unicorn'
 
 
 
@@ -96,6 +97,7 @@ group :development do
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano-passenger', require: false
   gem 'capistrano-sidekiq', require: false
+  gem 'capistrano3-unicorn', require: false
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

@@ -34,3 +34,5 @@ namespace :deploy do
     end
   end
 end
+
+after 'deploy:publishing', 'unicorn:restart'
