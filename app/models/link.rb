@@ -1,6 +1,6 @@
 class Link < ApplicationRecord
-  belongs_to :question, optional: true
-  belongs_to :answer, optional: true
+  belongs_to :question, optional: true, touch: true
+  belongs_to :answer, optional: true, touch: true
 
   validates :name, :url, presence: true
   validates :url, format: URI::regexp(%w[http https])
