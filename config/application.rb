@@ -21,7 +21,6 @@ module Qna
     config.active_job.queue_adapter = :sidekiq
     config.autoload_paths += [config.root.join('app')]
     config.action_cable.disable_request_forgery_protection = false
-    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
 
     config.generators do |g|
       g.test_framework :rspec,
